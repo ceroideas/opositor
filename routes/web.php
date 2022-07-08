@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function() {
+    //
+    return redirect('login');
+});
+
+Route::get('login', ['uses' => function () {
+    return view('login');
+}, 'as' => 'login']);
+
+Route::group(['prefix' => 'admin'/*, 'middleware' => 'auth'*/], function() {
+    Route::get('/', [MainController::class, 'index']);
+    //
 });
