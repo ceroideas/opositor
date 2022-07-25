@@ -14,9 +14,11 @@ use App\Http\Controllers\MainController;
 |
 */
 
-Route::get('/', function() {
-    //
+
+Route::get('/', function () {
+
     return redirect('login');
+//    return view('welcome');
 });
 
 Route::get('login', ['uses' => function () {
@@ -25,5 +27,8 @@ Route::get('login', ['uses' => function () {
 
 Route::group(['prefix' => 'admin'/*, 'middleware' => 'auth'*/], function() {
     Route::get('/', [MainController::class, 'index']);
-    //
 });
+
+Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

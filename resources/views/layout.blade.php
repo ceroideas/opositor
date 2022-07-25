@@ -85,7 +85,7 @@
       <!--header end-->
       <!--sidebar start-->
       <aside>
-          <div id="sidebar"  class="nav-collapse ">
+          <div style="z-index: 2" id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
                   <li>
@@ -121,7 +121,9 @@
         </aside>
       <!--sidebar end-->
       <!--main content start-->
-      @yield('body')
+	<main style="padding-top: 60px" class="mt-3">
+	      @yield('body')
+	</main>
       
       <!--main content end-->
 
