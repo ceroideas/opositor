@@ -15,7 +15,8 @@ class CreatePreguntasTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-	    $table->foreign('secction_id')->references('id')->on('tema_seccion');
+	    $table->unsignedBigInteger('seccion_id');
+	    $table->foreign('seccion_id')->references('id')->on('tema_seccion');
 	    $table->string('question');
 	    $table->longText('answer');
             $table->timestamps();

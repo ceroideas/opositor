@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +26,11 @@ Route::get('login', ['uses' => function () {
     return view('login');
 }, 'as' => 'login']);
 
-Route::group(['prefix' => 'admin'/*, 'middleware' => 'auth'*/], function() {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/', [MainController::class, 'index']);
+    Route::get('/temas-show', [AdminController::class, 'temas_show']);
+    Route::get('/temas-add', [AdminController::class, 'temas_add']);
+    Route::post('/temas-store', [AdminController::class, 'temas_store']);
 });
 
 Auth::routes();

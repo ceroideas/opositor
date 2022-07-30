@@ -74,7 +74,8 @@
                         </a>
                         <ul class="dropdown-menu extended logout">
                             <div class="log-arrow-up"></div>
-                            <li><a href="#"><i class="fa fa-key"></i> Salir</a></li>
+                            <li><a href="{{url('/admin/temas-show')}}"><i class="fa fa-cog"></i> Administrar Temas</a></li>
+                            <li class="text-center"><a href="#"><i class="fa fa-key"></i> Salir</a></li>
                         </ul>
                     </li>
                     <!-- user login dropdown end -->

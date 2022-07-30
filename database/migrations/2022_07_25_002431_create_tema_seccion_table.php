@@ -16,7 +16,8 @@ class CreateTemaSeccionTable extends Migration
         Schema::create('tema_seccion', function (Blueprint $table) {
             $table->id();
 	    $table->string('title');
-	    $table->foreign('tema_id')->references('id')->on('tema');
+	    $table->unsignedBigInteger('tema_id');
+	    $table->foreign('tema_id')->references('id')->on('temas');
 	    $table->string('type');
 	    $table->string('difficulty');
             $table->timestamps();

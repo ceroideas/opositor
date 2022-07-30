@@ -16,6 +16,7 @@ class CreateTemasTable extends Migration
         Schema::create('temas', function (Blueprint $table) {
             $table->id();
 	    $table->string('title');
+	    //$table->longText('description');
             $table->timestamps();
         });
     }
