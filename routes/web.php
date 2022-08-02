@@ -31,6 +31,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/temas-show', [AdminController::class, 'temas_show']);
     Route::get('/temas-add', [AdminController::class, 'temas_add']);
     Route::post('/temas-store', [AdminController::class, 'temas_store']);
+    Route::get('/temas/{id}', [AdminController::class, 'temas_single'])->where('id', '[0-9]+');
 });
 
 Auth::routes();

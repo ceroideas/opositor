@@ -18,6 +18,12 @@ class AdminController extends Controller
 		return view('admin.temas_add');
 	}
 
+	public function temas_single($id) {
+		//return view('admin.temas_add');
+		$tema = Temas::findOrFail($id);
+		return view('admin.temas-single', ['tema' => $tema]);
+	}
+
 	public function temas_store(Request $request){
 		$formFields = $request->validate([
 			'title' => ['required', Rule::unique('temas', 'title')]

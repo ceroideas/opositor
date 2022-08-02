@@ -10,6 +10,16 @@
 			<div class="panel">
 				<div class="panel-heading">
 					{{$tema['title']}}
+
+					<span class="tools pull-right">
+<!--
+						<a href="javascript:;" class="fa fa-chevron-down"></a>
+						<a href="javascript:;" class="fa fa-times"></a>
+-->
+						<a href="#">
+							<i class="fa fa-pencil"></i>
+						</a>
+					</span>
 					<!--
 					<span class="tools pull-right">
 						<a href="javascript:;" class="fa fa-chevron-down"></a>
