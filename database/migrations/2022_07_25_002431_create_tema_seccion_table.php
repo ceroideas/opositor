@@ -16,10 +16,12 @@ class CreateTemaSeccionTable extends Migration
         Schema::create('tema_seccion', function (Blueprint $table) {
             $table->id();
 	    $table->string('title');
-	    $table->unsignedBigInteger('tema_id');
-	    $table->foreign('tema_id')->references('id')->on('temas');
+	    $table->integer('tema_id');
+	   //$table->unsignedBigInteger('tema_id');
+	   //$table->foreign('tema_id')->references('id')->on('temas');
 	    $table->string('type');
 	    $table->string('difficulty');
+	    $table->longText('description');
             $table->timestamps();
         });
     }
@@ -31,6 +33,7 @@ class CreateTemaSeccionTable extends Migration
      */
     public function down()
     {
+	//Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('tema_seccion');
     }
 }

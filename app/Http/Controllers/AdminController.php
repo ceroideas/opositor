@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\Temas;
+use App\Models\Subtemas;
 
 class AdminController extends Controller
 {
@@ -21,7 +22,8 @@ class AdminController extends Controller
 	public function temas_single($id) {
 		//return view('admin.temas_add');
 		$tema = Temas::findOrFail($id);
-		return view('admin.temas-single', ['tema' => $tema]);
+		$subtemas = Subtemas::where('tema_id', $id)->get();
+		return view('admin.temas-single', ['tema' => $tema, 'subtemas' => $subtemas]);
 	}
 
 	public function temas_store(Request $request){
@@ -33,7 +35,5 @@ class AdminController extends Controller
 		Temas::create($formFields);
 
 		return redirect('/admin/temas-show');
-		//return 'Nojoda Carajo';
-		//return view('admin.temas_add');
 	}
 }

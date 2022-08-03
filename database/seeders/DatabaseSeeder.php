@@ -23,5 +23,44 @@ class DatabaseSeeder extends Seeder
 		    'role' => 'admin',
 		    'password' => Hash::make('password')
 	    ]);
+
+	    DB::table('temas')->insert([
+		    'title' => 'Dummy Tema'
+	    ]);
+
+	    DB::table('temas')->insert([
+		    'title' => 'Dummy Tema 2'
+	    ]);
+
+	    DB::table('temas')->insert([
+		    'title' => 'Dummy Tema 3'
+	    ]);
+
+	    DB::table('tema_seccion')->insert([
+		    'title' => 'Testing Sub tema',
+		    'tema_id' => 1,
+		    'type' => 'true_or_false',
+		    'difficulty' => 'easy',
+		    'description' => 'Sit obcaecati aut quam tempore voluptates? Maiores nisi recusandae necessitatibus error nobis Obcaecati pariatur adipisci rerum ab voluptatibus possimus Quisquam doloremque distinctio similique nesciunt sint laborum. Dolorum provident ipsa placeat'
+		    
+	    ]);
+
+	    DB::table('tema_seccion')->insert([
+		    'title' => 'Testing Sub tema 2',
+		    'tema_id' => 1,
+		    'type' => 'multiple_choice',
+		    'difficulty' => 'medium',
+		    'description' => 'Sit obcaecati aut quam tempore voluptates? Maiores nisi recusandae necessitatibus error nobis Obcaecati pariatur adipisci rerum ab voluptatibus possimus Quisquam doloremque distinctio similique nesciunt sint laborum. Dolorum provident ipsa placeat'
+		    
+	    ]);
+
+	    DB::table('tema_seccion')->insert([
+		    'title' => 'Testing Sub tema 3',
+		    'tema_id' => 1,
+		    'type' => 'flashcards',
+		    'difficulty' => 'hard',
+		    'description' => 'Sit obcaecati aut quam tempore voluptates? Maiores nisi recusandae necessitatibus error nobis Obcaecati pariatur adipisci rerum ab voluptatibus possimus Quisquam doloremque distinctio similique nesciunt sint laborum. Dolorum provident ipsa placeat'
+	    ]);
+
     }
 }

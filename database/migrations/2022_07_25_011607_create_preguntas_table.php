@@ -15,8 +15,9 @@ class CreatePreguntasTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-	    $table->unsignedBigInteger('seccion_id');
-	    $table->foreign('seccion_id')->references('id')->on('tema_seccion');
+	    //$table->unsignedBigInteger('seccion_id');
+	    //$table->foreign('seccion_id')->references('id')->on('tema_seccion');
+	    $table->integer('section_id');
 	    $table->string('question');
 	    $table->longText('answer');
             $table->timestamps();
@@ -30,6 +31,6 @@ class CreatePreguntasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('preguntas');
+        Schema::dropIfExists('questions');
     }
 }

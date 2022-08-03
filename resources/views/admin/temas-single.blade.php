@@ -11,158 +11,78 @@
 
               <div class="row">
                   <div class="col-lg-12">
+
                       <section class="panel">
                           <header class="panel-heading">
-                              Advanced Table
+				Sub Temas
+				<button type="button" class="btn btn-success">Success</button>
                           </header>
-                          <table class="table table-striped table-advance table-hover">
-                              <thead>
-                              <tr>
-                                  <th><i class="fa fa-bullhorn"></i> Company</th>
-                                  <th class="hidden-phone"><i class="fa fa-question-circle"></i> Descrition</th>
-                                  <th><i class="fa fa-bookmark"></i> Profit</th>
-                                  <th><i class=" fa fa-edit"></i> Status</th>
-                                  <th></th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              <tr>
-                                  <td><a href="#">Vector Ltd</a></td>
-                                  <td class="hidden-phone">Lorem Ipsum dorolo imit</td>
-                                  <td>12120.00$ </td>
-                                  <td><span class="label label-info label-mini">Due</span></td>
-                                  <td>
-                                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <a href="#">
-                                          Adimin co
-                                      </a>
-                                  </td>
-                                  <td class="hidden-phone">Lorem Ipsum dorolo</td>
-                                  <td>56456.00$ </td>
-                                  <td><span class="label label-warning label-mini">Due</span></td>
-                                  <td>
-                                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <a href="#">
-                                          boka soka
-                                      </a>
-                                  </td>
-                                  <td class="hidden-phone">Lorem Ipsum dorolo</td>
-                                  <td>14400.00$ </td>
-                                  <td><span class="label label-success label-mini">Paid</span></td>
-                                  <td>
-                                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <a href="#">
-                                          salbal llb
-                                      </a>
-                                  </td>
-                                  <td class="hidden-phone">Lorem Ipsum dorolo</td>
-                                  <td>2323.50$ </td>
-                                  <td><span class="label label-danger label-mini">Paid</span></td>
-                                  <td>
-                                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td><a href="#">Vector Ltd</a></td>
-                                  <td class="hidden-phone">Lorem Ipsum dorolo imit</td>
-                                  <td>12120.00$ </td>
-                                  <td><span class="label label-primary label-mini">Due</span></td>
-                                  <td>
-                                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <a href="#">
-                                          Adimin co
-                                      </a>
-                                  </td>
-                                  <td class="hidden-phone">Lorem Ipsum dorolo</td>
-                                  <td>56456.00$ </td>
-                                  <td><span class="label label-warning label-mini">Due</span></td>
-                                  <td>
-                                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td><a href="#">Vector Ltd</a></td>
-                                  <td class="hidden-phone">Lorem Ipsum dorolo imit</td>
-                                  <td>12120.00$ </td>
-                                  <td><span class="label label-success label-mini">Due</span></td>
-                                  <td>
-                                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <a href="#">
-                                          Adimin co
-                                      </a>
-                                  </td>
-                                  <td class="hidden-phone">Lorem Ipsum dorolo</td>
-                                  <td>56456.00$ </td>
-                                  <td><span class="label label-warning label-mini">Due</span></td>
-                                  <td>
-                                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td><a href="#">Vector Ltd</a></td>
-                                  <td class="hidden-phone">Lorem Ipsum dorolo imit</td>
-                                  <td>12120.00$ </td>
-                                  <td><span class="label label-info label-mini">Due</span></td>
-                                  <td>
-                                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <a href="#">
-                                          Adimin co
-                                      </a>
-                                  </td>
-                                  <td class="hidden-phone">Lorem Ipsum dorolo</td>
-                                  <td>56456.00$ </td>
-                                  <td><span class="label label-warning label-mini">Due</span></td>
-                                  <td>
-                                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                              </tbody>
-                          </table>
+
+			@if(count($subtemas) > 0)
+				  <table class="table table-striped table-advance table-hover">
+				      <thead>
+				      <tr>
+					  <th><i class="fa fa-bullhorn"></i>Nombre</th>
+					  <th class="hidden-phone"><i class="fa fa-question-circle"></i> Descrition</th>
+					  <th><i class="fa fa-bookmark"></i> Tipo</th>
+					  <th><i class=" fa fa-edit"></i> Dificultad</th>
+					  <th></th>
+				      </tr>
+				      </thead>
+				      <tbody>
+						@foreach($subtemas as $subtema)
+						      <tr>
+							  <td><a href="#">{{$subtema->title}}</a></td>
+
+							@php
+								$description = strlen($subtema->description) > 13 ? substr($subtema->description, 0, 30) . '...' : $subtema->description;
+							@endphp
+							  <td class="hidden-phone">{{$description}}</td>
+
+							@switch($subtema->type)
+								@case('true_or_false')
+									  <td>Verdadero o falso</td>
+									@break
+
+								@case('multiple_choice')
+									  <td>Seleccion Multiple</td>
+									@break
+
+								@case('flashcards')
+									  <td>Flashcards</td>
+									@break
+							@endswitch
+							
+							@switch($subtema->difficulty)
+								@case('easy')
+								  <td><span class="label label-success label-mini">Facil</span></td>
+									@break
+
+								@case('medium')
+								  <td><span class="label label-info label-mini">Medio</span></td>
+									@break
+
+								@case('hard')
+								  <td><span class="label label-danger label-mini">Dificil</span></td>
+									@break
+							@endswitch
+
+							  <td>
+								<!-- <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button> -->
+							      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+							      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+							  </td>
+						      </tr>
+						@endforeach
+				      </tbody>
+				  </table>
+			@else
+				<h2>No hay subtemas</h2>
+			@endif	
+
                       </section>
+
+
                   </div>
               </div>
 @endsection
