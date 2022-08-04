@@ -9,4 +9,5 @@ class Subtemas extends Model
 {
     use HasFactory;
     protected $table = 'tema_seccion';
+    protected $fillable = ['title', 'type', 'description', 'difficulty', 'tema_id'];
 }

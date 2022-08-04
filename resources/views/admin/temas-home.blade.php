@@ -16,7 +16,7 @@
 						<a href="javascript:;" class="fa fa-chevron-down"></a>
 						<a href="javascript:;" class="fa fa-times"></a>
 -->
-						<a href="#">
+						<a href="{{url('admin/temas/' . $tema['id'])}}">
 							<i class="fa fa-pencil"></i>
 						</a>
 					</span>

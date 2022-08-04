@@ -1,0 +1,18 @@
+
+.panel-heading {
+	display:flex;
+	align-items:center;
+	justify-content: space-between;
+}
+
+/*
+.no-margin {
+	margin: 0px !important;
+}
+
+.dificulty-column {
+	display: flex;
+	align-items:center;
+	justify-content: center;
+}
+*/

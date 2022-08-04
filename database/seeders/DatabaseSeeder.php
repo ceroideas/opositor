@@ -38,6 +38,7 @@ class DatabaseSeeder extends Seeder
 
 	    DB::table('tema_seccion')->insert([
 		    'title' => 'Testing Sub tema',
+		    'status' => 'active',
 		    'tema_id' => 1,
 		    'type' => 'true_or_false',
 		    'difficulty' => 'easy',
@@ -45,8 +46,10 @@ class DatabaseSeeder extends Seeder
 		    
 	    ]);
 
+
 	    DB::table('tema_seccion')->insert([
-		    'title' => 'Testing Sub tema 2',
+		    'title' => 'Testing Sub tema',
+		    'status' => 'inactive',
 		    'tema_id' => 1,
 		    'type' => 'multiple_choice',
 		    'difficulty' => 'medium',
@@ -56,11 +59,12 @@ class DatabaseSeeder extends Seeder
 
 	    DB::table('tema_seccion')->insert([
 		    'title' => 'Testing Sub tema 3',
+		    'status' => 'active',
 		    'tema_id' => 1,
 		    'type' => 'flashcards',
 		    'difficulty' => 'hard',
 		    'description' => 'Sit obcaecati aut quam tempore voluptates? Maiores nisi recusandae necessitatibus error nobis Obcaecati pariatur adipisci rerum ab voluptatibus possimus Quisquam doloremque distinctio similique nesciunt sint laborum. Dolorum provident ipsa placeat'
+		    
 	    ]);
-
     }
 }

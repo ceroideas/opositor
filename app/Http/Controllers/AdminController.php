@@ -36,4 +36,27 @@ class AdminController extends Controller
 
 		return redirect('/admin/temas-show');
 	}
+
+	public function temas_add_subtema($id) {
+		$tema = Temas::findOrFail($id);
+		return view('admin.temas_add_subtema', ['tema' => $tema]);
+	}
+
+	public function subtema_store(Request $request,$id) {
+		$tema = Temas::findOrFail($id);
+
+		$formFields = $request->validate([
+			'title' => ['required', Rule::unique('tema_seccion', 'title')],
+			'type' => 'required',
+			'difficulty' => 'required',
+			'description' => 'required'
+		]);
+
+		$formFields['tema_id'] = $id;
+
+		Subtemas::create($formFields);
+
+		return redirect('/admin/temas/' . $id);
+
+	}
 }

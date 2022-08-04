@@ -1,0 +1,13 @@
+.row .title  {
+	text-align:center;
+	margin: 25px 0px;
+}
+
+.panel {
+	max-width: 1000px;
+	margin: 0px auto;
+}
+
+.form-group {
+	margin: 30 0px !important;
+}

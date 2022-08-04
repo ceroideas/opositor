@@ -47,6 +47,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/template_content/assets/bootstrap-daterangepicker/daterangepicker-bs3.css') }}" />
     <script src="{{ asset('/template_content/js/jquery.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('/css/dropzone.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/layout.css') }}">
+	@yield('css')
   </head>
 
   <body>
@@ -58,7 +60,7 @@
                   <i class="fa fa-bars"></i>
               </div>
             <!--logo start-->
-            <a href="{{ url('/admin/home') }}" class="logo">OPOSITOR<span>BOMBEROS</span></a>
+            <a href="{{ url('/admin') }}" class="logo">OPOSITOR<span>BOMBEROS</span></a>
             <div class="top-nav ">
                 <!--search & user info start-->
                 <ul class="nav pull-right top-menu">
@@ -122,7 +124,7 @@
         </aside>
       <!--sidebar end-->
       <!--main content start-->
-	<main style="padding-top: 60px" class="mt-3">
+	<main>
 	      @yield('body')
 	</main>
       
@@ -177,4 +179,5 @@
   </script>
     @yield('scripts')
   </body>
+
 </html>

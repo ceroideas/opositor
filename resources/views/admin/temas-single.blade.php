@@ -1,21 +1,25 @@
 
 @extends('layout')
 
+@section('css')
+    <link rel="stylesheet" href="{{ asset('/css/temas_view.css') }}">
+@endsection
+
 @section('body')
-	<div class="row">
+	<div class="row no-margin">
 		<div class="col-12">
-			<h2 style="text-align:center;">{{$tema->title}}</h2>
+			<h2 style="text-align:center;"><strong>{{$tema->title}}</strong></h2>
 		</div>
 	</div>
 
 
-              <div class="row">
+              <div class="row no-margin">
                   <div class="col-lg-12">
 
                       <section class="panel">
                           <header class="panel-heading">
-				Sub Temas
-				<button type="button" class="btn btn-success">Success</button>
+				<strong> Sub Temas </strong>
+				<a class="btn btn-success" href="{{url('/admin/temas/' . $tema->id . '/add-subtema')}}">Agregar</a>
                           </header>
 
 			@if(count($subtemas) > 0)
@@ -23,7 +27,8 @@
 				      <thead>
 				      <tr>
 					  <th><i class="fa fa-bullhorn"></i>Nombre</th>
-					  <th class="hidden-phone"><i class="fa fa-question-circle"></i> Descrition</th>
+					  <th class="hidden-phone"><i class="fa fa-question-circle"></i> Descripcion</th>
+					  <th><i class="fa fa-bookmark"></i> Status</th>
 					  <th><i class="fa fa-bookmark"></i> Tipo</th>
 					  <th><i class=" fa fa-edit"></i> Dificultad</th>
 					  <th></th>
@@ -32,12 +37,18 @@
 				      <tbody>
 						@foreach($subtemas as $subtema)
 						      <tr>
-							  <td><a href="#">{{$subtema->title}}</a></td>
+							  <td>{{$subtema->title}}</td>
 
 							@php
 								$description = strlen($subtema->description) > 13 ? substr($subtema->description, 0, 30) . '...' : $subtema->description;
 							@endphp
 							  <td class="hidden-phone">{{$description}}</td>
+
+							@if($subtema->status == 'active')
+							  <td class="dificulty-column"><span class="label label-success label-mini">Activa</span></td>
+							@else
+							  <td class="dificulty-column"><span class="label label-danger label-mini">Inactiva</span></td>
+							@endif
 
 							@switch($subtema->type)
 								@case('true_or_false')
@@ -55,15 +66,15 @@
 							
 							@switch($subtema->difficulty)
 								@case('easy')
-								  <td><span class="label label-success label-mini">Facil</span></td>
+								  <td class="dificulty-column"><span class="label label-success label-mini">Facil</span></td>
 									@break
 
 								@case('medium')
-								  <td><span class="label label-info label-mini">Medio</span></td>
+								  <td class="dificulty-column"><span class="label label-info label-mini">Medio</span></td>
 									@break
 
 								@case('hard')
-								  <td><span class="label label-danger label-mini">Dificil</span></td>
+								  <td class="dificulty-column"><span class="label label-danger label-mini">Dificil</span></td>
 									@break
 							@endswitch
 
