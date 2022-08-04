@@ -59,4 +59,16 @@ class AdminController extends Controller
 		return redirect('/admin/temas/' . $id);
 
 	}
+
+	public function subtema_view($tema_id, $subtema_id) {
+
+		$tema = Temas::findOrFail($tema_id);
+		$subtema = Subtemas::findOrFail($subtema_id);
+
+		return view('admin.subtema_view', [
+			'tema' => $tema,
+			'subtema' => $subtema
+		]);
+	}
+
 }

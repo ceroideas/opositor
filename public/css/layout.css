@@ -7,3 +7,15 @@ main {
 .no-margin {
 	margin: 0px !important;
 }
+
+.text-center {
+	text-align: center;
+}
+
+.margin-tb {
+	margin: 25px 0px;
+}
+
+.max-1000px {
+	max-width: 1000px;
+}

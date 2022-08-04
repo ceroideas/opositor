@@ -37,7 +37,7 @@
 				      <tbody>
 						@foreach($subtemas as $subtema)
 						      <tr>
-							  <td>{{$subtema->title}}</td>
+							  <td> <a href="{{url('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id)}}">{{$subtema->title}}</a></td>
 
 							@php
 								$description = strlen($subtema->description) > 13 ? substr($subtema->description, 0, 30) . '...' : $subtema->description;

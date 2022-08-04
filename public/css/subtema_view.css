@@ -1,0 +1,27 @@
+
+.descripcion {
+	padding: 20px;
+	margin: 20px;
+	
+}
+
+.descripcion-panel {
+	margin: 20px;
+}
+
+.panel {
+	margin: 20px;	
+}
+
+.preguntas {
+	padding: 20px;
+}
+
+/*
+thead th {
+	display:flex;
+	align-items:center;
+	flex-direction: row;
+	justify-content: center;
+}
+*/
