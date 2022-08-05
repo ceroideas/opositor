@@ -5,6 +5,13 @@
 	justify-content: space-between;
 }
 
+.no-subtema {
+	width: 100%;
+	text-align: center;
+	padding: 20px 0px;
+	font-size: 15pt;
+}
+
 /*
 .no-margin {
 	margin: 0px !important;

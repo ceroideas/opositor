@@ -71,4 +71,14 @@ class AdminController extends Controller
 		]);
 	}
 
+	public function question_add($tema_id, $subtema_id) {
+		$tema = Temas::findOrFail($tema_id);
+		$subtema = Subtemas::findOrFail($subtema_id);
+
+		return view('admin.questions-add', [
+			'tema' => $tema,
+			'subtema' => $subtema
+		]);
+	}
+
 }

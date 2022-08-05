@@ -7,8 +7,11 @@
 @section('body')
 
 	<div class="row no-margin">
-		<div class="col-12 no-margin">
+		<div class="col-12 no-margin super_test header-1">
+			<a href="{{url('/admin/temas/' . $tema->id)}}" class="goback-link"><i class="fa fa-angle-left"></i></a>
 			<h2 class="text-center margin-tb"> {{$subtema->title}} </h2>
+		
+			<span></span>
 		</div>
 	</div>
 
@@ -82,8 +85,9 @@
 			</section>
 
 			<section class="panel">
-				<header class="panel-heading">
+				<header class="panel-heading space-between">
 					<h3>Preguntas</h3>
+					<a class="btn btn-success" href="{{url('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id . '/add-question')}}">Agregar</a>
 				</header>
 
 				<div class="preguntas">

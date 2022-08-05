@@ -19,3 +19,33 @@ main {
 .max-1000px {
 	max-width: 1000px;
 }
+
+.header-1 {
+	display:flex;
+	align-items: center;
+	justify-content: space-around;
+	margin: 20px 0px;
+} 
+
+.ma {
+	margin: auto;
+}
+
+.fa-angle-left {
+	font-size: 40pt;
+}
+
+/*
+.goback-link {
+	position: absolute:
+	left: 20px;
+}
+
+
+.super_test {
+	display:flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: black !important;
+}
+*/

@@ -7,8 +7,10 @@
 @section('body')
 
 <div class="row no-margin">
-	<div class="col">
+	<div class="col header-1">
+		<a href="{{url('/admin/temas-show')}}" class="goback-link"><i class="fa fa-angle-left"></i></a>
 		<h2 class="title">Añadir otro subtema</h2>
+		<span></span>
 	</div>
 </div>
 

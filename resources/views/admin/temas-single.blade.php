@@ -7,8 +7,10 @@
 
 @section('body')
 	<div class="row no-margin">
-		<div class="col-12">
+		<div class="col-12 header-1">
+			<a href="{{url('/admin/temas-show')}}" class="goback-link"><i class="fa fa-angle-left"></i></a>
 			<h2 style="text-align:center;"><strong>{{$tema->title}}</strong></h2>
+			<span></span>
 		</div>
 	</div>
 
@@ -88,7 +90,7 @@
 				      </tbody>
 				  </table>
 			@else
-				<h2>No hay subtemas</h2>
+				<h2 class="no-subtema">No hay subtemas</h2>
 			@endif	
 
                       </section>

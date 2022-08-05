@@ -17,6 +17,16 @@
 	padding: 20px;
 }
 
+.no-subtema {
+	text-align: center;
+}
+
+.space-between {
+	display:flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
 /*
 thead th {
 	display:flex;
