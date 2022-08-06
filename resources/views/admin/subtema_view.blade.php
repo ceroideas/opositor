@@ -87,11 +87,33 @@
 			<section class="panel">
 				<header class="panel-heading space-between">
 					<h3>Preguntas</h3>
-					<a class="btn btn-success" href="{{url('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id . '/add-question')}}">Agregar</a>
+					@if(!$subtema->type == 'true_or_false' && !count($questions) > 0)
+						<a class="btn btn-success" href="{{url('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id . '/add-question')}}">Agregar</a>
+					@endif
 				</header>
 
 				<div class="preguntas">
-					<p>No hay preguntas por los momentos</p>
+					@if( count($questions) > 0)
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Pregunta</th>
+									<th>Respuesta</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								@foreach($questions as $question)
+									<tr>
+										<td>{{$question->question}}</td>
+										<td>{{$question->answer}}</td>
+									</tr>
+								@endforeach
+							</tbody>
+						</table>
+					@else
+						<p>No hay preguntas por los momentos</p>
+					@endif
 				</div>
 
 			</section>

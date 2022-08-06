@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\Temas;
 use App\Models\Subtemas;
+use App\Models\Questions;
 
 class AdminController extends Controller
 {
@@ -64,10 +65,12 @@ class AdminController extends Controller
 
 		$tema = Temas::findOrFail($tema_id);
 		$subtema = Subtemas::findOrFail($subtema_id);
+		$questions = Questions::all();
 
 		return view('admin.subtema_view', [
 			'tema' => $tema,
-			'subtema' => $subtema
+			'subtema' => $subtema,
+			'questions' => $questions
 		]);
 	}
 
@@ -81,4 +84,26 @@ class AdminController extends Controller
 		]);
 	}
 
+	public function question_store(Request $request, $tema_id, $subtema_id) {
+		$tema = Temas::findOrFail($tema_id);
+		$subtema = Subtemas::findOrFail($subtema_id);
+
+		switch($subtema->type) {
+			case "true_or_false":
+
+
+				$formFields = $request->validate([
+					'question' => 'required',
+					'answer' => 'required',
+				]);
+				break;
+		}
+
+		$formFields['section_id'] = $subtema->id;
+
+		Questions::create($formFields);
+
+		return redirect('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id);
+
+	}
 }

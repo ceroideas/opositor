@@ -26,7 +26,7 @@
 -->
 				</header>
 
-				<form action="">
+				<form method="POST" action="">
 					@csrf
 
 					@if($subtema->type == 'true_or_false')
@@ -42,10 +42,13 @@
 
 						<div class="form-group @error('answer') has-error @enderror">
 							<label for="answer">Respuesta</label>
-							<select id="answer" name="type" class="form-control">
+							<select id="answer" name="answer" class="form-control">
 								<option value="true">Verdadero</option>
 								<option value="false">Falso</option>
 							</select>
+							@error('answer')
+								{{$message}}
+							@enderror
 						</div>
 					@endif
 
