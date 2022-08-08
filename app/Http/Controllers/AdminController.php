@@ -65,7 +65,8 @@ class AdminController extends Controller
 
 		$tema = Temas::findOrFail($tema_id);
 		$subtema = Subtemas::findOrFail($subtema_id);
-		$questions = Questions::all();
+		//$questions = Questions::all();
+		$questions = Questions::where('section_id', $subtema->id)->get();
 
 		return view('admin.subtema_view', [
 			'tema' => $tema,
@@ -88,9 +89,19 @@ class AdminController extends Controller
 		$tema = Temas::findOrFail($tema_id);
 		$subtema = Subtemas::findOrFail($subtema_id);
 
+
+
 		switch($subtema->type) {
 			case "true_or_false":
 
+				// Check if there's already a question
+				$q = Questions::where('section_id', $subtema->id)->get();
+
+				if(count($q) > 0) {
+					return redirect('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id)
+						->with('error', 'Los subtemas de tipo "verdadero y falso" solo pueden tener una pregunta y respuesta');
+					
+				}
 
 				$formFields = $request->validate([
 					'question' => 'required',

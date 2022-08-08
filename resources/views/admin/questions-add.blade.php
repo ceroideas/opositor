@@ -29,7 +29,18 @@
 				<form method="POST" action="">
 					@csrf
 
-					@if($subtema->type == 'true_or_false')
+					@switch($subtema->type)
+
+						@case('true_or_false')
+							@include('inc._true_or_false_add_question_template')
+							@break
+
+						@case('flashcards')
+							@include('inc._flashcards_add_question_template');
+							@break
+					@endswitch
+
+<!--
 
 						<div class="form-group @error('title') has-error @enderror">
 							<label for="title">Titulo</label>
@@ -49,8 +60,13 @@
 							@error('answer')
 								{{$message}}
 							@enderror
+
 						</div>
+					@include('inc._true_or_false_add_question_template')
+-->
+					@if($subtema->type == 'true_or_false')
 					@endif
+
 
 					<button type="submit" class="btn btn-info">Crear</button>
 				</form>
