@@ -26,7 +26,7 @@
 -->
 				</header>
 
-				<form method="POST" action="">
+				<form method="POST">
 					@csrf
 
 					@switch($subtema->type)
@@ -37,6 +37,10 @@
 
 						@case('flashcards')
 							@include('inc._flashcards_add_question_template');
+							@break
+
+						@case('multiple_choice')
+							@include('inc._multiple_choice_add_question_template');
 							@break
 					@endswitch
 

@@ -88,7 +88,7 @@
 				<header class="panel-heading space-between">
 					<h3>Preguntas</h3>
 
-					@if($subtema->type == 'true_or_false' && count($questions) == 0)
+					@if( ( ($subtema->type == 'flashcards' || $subtema->type == 'true_or_false' ) && count($questions) == 0 ) || ( $subtema->type == 'multiple_choice' &&  count($questions) < 3) )
 						<a class="btn btn-success" href="{{url('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id . '/add-question')}}">Agregar</a>
 					@endif
 				</header>
@@ -119,8 +119,10 @@
 										<td>{{$question->question}}</td>
 										@if($question->answer == 'true')
 											<td>Verdadero</td>
-										@else
+										@elseif($question->answer == 'false')
 											<td>Falso</td>
+										@else
+											<td>{{$question->answer}}</td>
 										@endif
 										<td>
 											<button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>

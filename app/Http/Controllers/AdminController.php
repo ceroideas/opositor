@@ -90,7 +90,6 @@ class AdminController extends Controller
 		$subtema = Subtemas::findOrFail($subtema_id);
 
 
-
 		switch($subtema->type) {
 			case "true_or_false":
 
@@ -107,6 +106,59 @@ class AdminController extends Controller
 					'question' => 'required',
 					'answer' => 'required',
 				]);
+				break;
+
+			case "flashcards":
+
+				// Check if there's already a question
+				$q = Questions::where('section_id', $subtema->id)->get();
+
+				if(count($q) > 0) {
+					return redirect('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id)
+						->with('error', 'Los subtemas de tipo "flashcards" solo pueden tener una pregunta y respuesta');
+				}
+
+				$formFields = $request->validate([
+					'answer' => 'required',
+					'question' => 'required',
+				]);
+				break;
+
+			case "multiple_choice":
+
+				/*
+				// Check if there's already a question
+				$q = Questions::where('section_id', $subtema->id)->get();
+
+				if(count($q) > 0) {
+					return redirect('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id)
+						->with('error', 'Los subtemas de tipo "flashcards" solo pueden tener una pregunta y respuesta');
+				}
+				 */
+
+				$formFields = $request->validate([
+					'question' => 'required',
+					'answer-1' => 'required',
+					'answer-2' => 'required',
+					'answer-3' => 'required',
+					'answer-4' => 'required'
+				]);
+
+				$datas = [
+					[$formFields->question, 'question'],
+					['answer-1', $formFields->answer_1],
+					['answer-2', $formFields->answer_2],
+					['answer-3', $formFields->answer_3],
+					['answer-4', $formFields->answer_4],
+				]
+
+				forEach($data as $datas) {
+					Questions::create([
+						'section_id' => $subtema->id,
+						'question' => ''
+					]);
+				}
+
 				break;
 		}
 
