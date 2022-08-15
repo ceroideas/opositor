@@ -138,26 +138,29 @@ class AdminController extends Controller
 
 				$formFields = $request->validate([
 					'question' => 'required',
-					'answer-1' => 'required',
-					'answer-2' => 'required',
-					'answer-3' => 'required',
-					'answer-4' => 'required'
+					'answer_1' => 'required',
+					'answer_2' => 'required',
+					'answer_3' => 'required',
+					'answer_4' => 'required'
 				]);
 
 				$datas = [
-					[$formFields->question, 'question'],
-					['answer-1', $formFields->answer_1],
-					['answer-2', $formFields->answer_2],
-					['answer-3', $formFields->answer_3],
-					['answer-4', $formFields->answer_4],
-				]
+					[$request->question, 'question'],
+					['answer-1', $request->answer_1],
+					['answer-2', $request->answer_2],
+					['answer-3', $request->answer_3],
+					['answer-4', $request->answer_4],
+				];
 
-				forEach($data as $datas) {
+				forEach($datas as $data) {
 					Questions::create([
 						'section_id' => $subtema->id,
-						'question' => ''
+						'question' => $data[0],
+						'answer' => $data[1],
 					]);
 				}
+
+				return redirect('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id);
 
 				break;
 		}

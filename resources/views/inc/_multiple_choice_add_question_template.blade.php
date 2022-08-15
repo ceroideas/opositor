@@ -43,3 +43,15 @@
 		  <span class="help-block">La primera respuesta es requerida</span>
 	@enderror
 </div>
+
+
+<div class="form-group @error('answer') has-error @enderror">
+	<label for="answer">Respuesta</label>
+	<select id="answer" name="answer" class="form-control">
+		<option value="true">Verdadero</option>
+		<option value="false">Falso</option>
+	</select>
+	@error('answer')
+		{{$message}}
+	@enderror
+</div>
