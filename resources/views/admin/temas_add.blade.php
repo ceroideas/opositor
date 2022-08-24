@@ -5,8 +5,8 @@
 
 	</style>
 
-	<div class="row">
-		<div id="" class="mx-a col-md-10">
+	<div class="row no-margin">
+		<div id="" class="mx-a col-md-10 no-margin">
                       <section class="panel">
                           <header class="panel-heading">
                               Añadir un tema

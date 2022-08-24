@@ -46,10 +46,12 @@
 
 
 <div class="form-group @error('answer') has-error @enderror">
-	<label for="answer">Respuesta</label>
+	<label for="answer">Respuesta correcta</label>
 	<select id="answer" name="answer" class="form-control">
-		<option value="true">Verdadero</option>
-		<option value="false">Falso</option>
+		<option value="answer_1">Opcion #1</option>
+		<option value="answer_2">Opcion #2</option>
+		<option value="answer_3">Opcion #3</option>
+		<option value="answer_4">Opcion #4</option>
 	</select>
 	@error('answer')
 		{{$message}}

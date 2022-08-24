@@ -1,13 +1,17 @@
 @extends('layout')
 
+@section('css')
+    <link rel="stylesheet" href="{{ asset('/css/temas-home.css') }}">
+@endsection
+
 @section('body')
 
 	<a href="{{url('/admin/temas-add')}}" class="btn btn-success">Crear otro Tema</a>
 
 @foreach($temas as $tema)
-	<div class="row">
-		<div class="col-md-6">
-			<div class="panel">
+	<div class="row no-margin">
+		<div class="col-12 no-margin">
+			<div class="panel no-margin">
 				<div class="panel-heading">
 					{{$tema['title']}}
 
@@ -28,14 +32,17 @@
 					-->
 				</div>
 			<div class="panel-body">
+				@if(count($tema['subtemas']) != 0)
 				<ul>
-					<li>Amet excepturi officiis</li>
-					<li>Amet excepturi officiis</li>
-					<li>Amet excepturi officiis</li>
-					<li>Amet excepturi officiis</li>
-					<li>Amet excepturi officiis</li>
-					<li>Amet excepturi officiis</li>
+
+					@foreach($tema['subtemas'] as $subtema)
+						<li>{{$subtema->title}}</li>
+					@endforeach
 				</ul>
+				@else
+					<p>Este tema no tiene subtemas</p>
+					
+				@endif
 			</div>
 		</div>
 

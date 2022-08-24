@@ -13,6 +13,11 @@ class AdminController extends Controller
     //
 	public function temas_show() {
 		$temas = Temas::all();
+
+		foreach ($temas as $tema){
+			$tema['subtemas'] = Subtemas::where('tema_id', $tema->id)->get();
+		} 	
+
 		return view('admin.temas-home', ['temas' => $temas]);
 	}
 
@@ -42,6 +47,16 @@ class AdminController extends Controller
 		$tema = Temas::findOrFail($id);
 		return view('admin.temas_add_subtema', ['tema' => $tema]);
 	}
+
+	public function temas_edit_subtema($id, $subtema_id) {
+		$tema = Temas::findOrFail($id);
+		$subtema = Subtemas::findOrFail($subtema_id);
+
+		dd($tema);
+
+		return view('admin.temas_add_subtema', ['tema' => $tema]);
+	}
+
 
 	public function subtema_store(Request $request,$id) {
 		$tema = Temas::findOrFail($id);
@@ -141,7 +156,8 @@ class AdminController extends Controller
 					'answer_1' => 'required',
 					'answer_2' => 'required',
 					'answer_3' => 'required',
-					'answer_4' => 'required'
+					'answer_4' => 'required',
+					'answer' => 'required'
 				]);
 
 				$datas = [
@@ -150,6 +166,7 @@ class AdminController extends Controller
 					['answer-2', $request->answer_2],
 					['answer-3', $request->answer_3],
 					['answer-4', $request->answer_4],
+					['answer', $request->answer]
 				];
 
 				forEach($datas as $data) {
