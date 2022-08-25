@@ -12,6 +12,16 @@
 	font-size: 15pt;
 }
 
+.modal-footer  {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.modal-footer form {
+	margin: 0px 20px !important;
+}
+
 /*
 .no-margin {
 	margin: 0px !important;

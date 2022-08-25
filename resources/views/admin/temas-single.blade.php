@@ -84,7 +84,52 @@
 								<!-- <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button> -->
 								
 							      <a href="{{ url('/admin/temas/' . $tema->id . '/edit-subtema/' . $subtema->id) }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-							      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+							      <!-- <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button> -->
+
+							      <a class="btn btn-danger btn-xs" data-toggle="modal" href="#myModal">
+								  <i class="fa fa-trash-o "></i>
+							      </a>
+
+							      <!-- Modal -->
+							      <div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								  <div class="modal-dialog">
+								      <div class="modal-content">
+									  <div class="modal-header">
+									      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+									      <h4 class="modal-title">¿Seguro que deseas eliminar este subtema?</h4>
+									  </div>
+									  <div class="modal-body">
+
+									      ¿Seguro que deseas eliminar este subtema?
+
+									  </div>
+									  <div class="modal-footer">
+									      <button data-dismiss="modal" class="btn btn-default" type="button">Cancelar</button>
+                              <form action="{{url('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id . '/destroy')}}" method="POST" class="form-inline" role="form">
+				@csrf
+<!--
+									      <button class="btn btn-danger" type="button">Eliminar</button>
+                                  <div class="form-group">
+                                      <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                                      <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="sr-only" for="exampleInputPassword2">Password</label>
+                                      <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                                  </div>
+                                  <div class="checkbox">
+                                      <label>
+                                          <input type="checkbox"> Remember me
+                                      </label>
+                                  </div>
+-->
+                                  <button type="submit" class="btn btn-danger">Eliminar</button>
+                              </form>
+									  </div>
+								      </div>
+								  </div>
+							      </div>
+
 							  </td>
 						      </tr>
 						@endforeach

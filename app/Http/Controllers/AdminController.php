@@ -48,13 +48,47 @@ class AdminController extends Controller
 		return view('admin.temas_add_subtema', ['tema' => $tema]);
 	}
 
+	public function temas_destroy_subtema($id, $subtema_id, Request $request) {
+		$tema = Temas::findOrFail($id);
+		$subtema = Subtemas::findOrFail($subtema_id);
+		
+		Questions::where('section_id', $subtema_id)->delete();
+
+		//Temas::destroy($id);
+		Subtemas::destroy($subtema_id);
+
+		return redirect('/admin/temas/' . $id);
+	}
+
+	public function temas_update_subtema($id, $subtema_id, Request $request) {
+
+		$formFields = $request->validate([
+			'title' => ['required', Rule::unique('tema_seccion', 'title')],
+			'status' => 'required',
+			'difficulty' => 'required',
+			'description' => 'required'
+		]);
+
+		$subtema = Subtemas::findOrFail($subtema_id);
+
+		
+
+		$subtema->difficulty = $formFields['difficulty'];
+		$subtema->title = $formFields['title'];
+		$subtema->description = $formFields['description'];
+		$subtema->status = $formFields['status'];
+
+		$subtema->save();
+
+		return redirect('/admin/temas/' . $id);
+		
+	}
+
 	public function temas_edit_subtema($id, $subtema_id) {
 		$tema = Temas::findOrFail($id);
 		$subtema = Subtemas::findOrFail($subtema_id);
-
-		dd($tema);
-
-		return view('admin.temas_add_subtema', ['tema' => $tema]);
+	
+		return view('admin.temas_edit_subtema', ['tema' => $tema, 'subtema' => $subtema]);
 	}
 
 
