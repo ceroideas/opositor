@@ -43,6 +43,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
     Route::get('/temas/{tema_id}/subtema/{subtema_id}/add-question', [AdminController::class, 'question_add'])->where(['tema_id' => '[0-9]+', 'subtema_id' => '[0-9]+']);
     Route::post('/temas/{tema_id}/subtema/{subtema_id}/add-question', [AdminController::class, 'question_store'])->where(['tema_id' => '[0-9]+', 'subtema_id' => '[0-9]+']);
+
+    Route::get('/temas/{tema_id}/subtema/{subtema_id}/edit-question', [AdminController::class, 'question_edit'])->where(['tema_id' => '[0-9]+', 'subtema_id' => '[0-9]+']);
+    Route::post('/temas/{tema_id}/subtema/{subtema_id}/edit-question', [AdminController::class, 'question_update'])->where(['tema_id' => '[0-9]+', 'subtema_id' => '[0-9]+']);
 });
 
 Auth::routes();

@@ -125,8 +125,11 @@
 											<td>{{$question->answer}}</td>
 										@endif
 										<td>
-											<button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-											<button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+										<!--	<button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button> -->
+
+											@php $url = '/admin/temas/'. $tema->id .'/subtema/' . $subtema->id . '/edit-question' @endphp
+											<a class="btn btn-primary btn-xs" href="{{url($url)}}"><i class="fa fa-pencil"></i></a>
+											<button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button> 
 										</td>
 									</tr>
 								@endforeach

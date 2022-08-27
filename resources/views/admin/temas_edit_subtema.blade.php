@@ -8,7 +8,7 @@
 
 <div class="row no-margin">
 	<div class="col header-1">
-		<a href="{{url('/admin/temas-show')}}" class="goback-link"><i class="fa fa-angle-left"></i></a>
+		<a href="{{url('/admin/temas/' . $tema->id)}}" class="goback-link"><i class="fa fa-angle-left"></i></a>
 		<h2 class="title">Editar {{$subtema->title}}</h2>
 		<span></span>
 	</div>

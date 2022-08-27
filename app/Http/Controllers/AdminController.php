@@ -223,4 +223,125 @@ class AdminController extends Controller
 		return redirect('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id);
 
 	}
+
+	public function question_edit($tema_id, $subtema_id) {
+
+		$tema = Temas::findOrFail($tema_id);
+		$subtema = Subtemas::findOrFail($subtema_id);
+		$questions = Questions::where('section_id', $subtema_id)->get();
+
+		return view('admin.questions-edit', [
+			'tema' => $tema,
+			'subtema' => $subtema,
+			'question' => $questions
+		]);
+		
+	}
+
+	public function question_update(Request $request, $tema_id, $subtema_id) {
+		$tema = Temas::findOrFail($tema_id);
+		$subtema = Subtemas::findOrFail($subtema_id);
+
+
+		switch($subtema->type) {
+			case "true_or_false":
+
+				// Check if there's already a question
+				$q = Questions::where('section_id', $subtema->id)->get()[0];
+
+				/*
+				if(count($q) > 0) {
+					return redirect('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id)
+						->with('error', 'Los subtemas de tipo "verdadero y falso" solo pueden tener una pregunta y respuesta');
+					
+				}
+				 */
+
+				$formFields = $request->validate([
+					'question' => 'required',
+					'answer' => 'required',
+				]);
+
+				$q->question = $formFields['question'];
+				$q->answer = $formFields['answer'];
+				$q->save();
+
+				break;
+
+			case "flashcards":
+
+				// Check if there's already a question
+				$q = Questions::where('section_id', $subtema->id)->get()[0];
+
+				/*
+				if(count($q) > 0) {
+					return redirect('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id)
+						->with('error', 'Los subtemas de tipo "flashcards" solo pueden tener una pregunta y respuesta');
+				}
+				 */
+
+				$formFields = $request->validate([
+					'answer' => 'required',
+					'question' => 'required',
+				]);
+
+				$q->question = $formFields['question'];
+				$q->answer = $formFields['answer'];
+				$q->save();
+
+
+				break;
+
+			case "multiple_choice":
+
+				/*
+				// Check if there's already a question
+				$q = Questions::where('section_id', $subtema->id)->get();
+
+				if(count($q) > 0) {
+					return redirect('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id)
+						->with('error', 'Los subtemas de tipo "flashcards" solo pueden tener una pregunta y respuesta');
+				}
+				 */
+
+				$formFields = $request->validate([
+					'question' => 'required',
+					'answer_1' => 'required',
+					'answer_2' => 'required',
+					'answer_3' => 'required',
+					'answer_4' => 'required',
+					'answer' => 'required'
+				]);
+
+				$datas = [
+					[$request->question, 'question'],
+					['answer-1', $request->answer_1],
+					['answer-2', $request->answer_2],
+					['answer-3', $request->answer_3],
+					['answer-4', $request->answer_4],
+					['answer', $request->answer]
+				];
+
+				forEach($datas as $data) {
+					Questions::create([
+						'section_id' => $subtema->id,
+						'question' => $data[0],
+						'answer' => $data[1],
+					]);
+				}
+
+				return redirect('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id);
+
+				break;
+		}
+
+		/*
+		$formFields['section_id'] = $subtema->id;
+
+		Questions::create($formFields);
+		 */
+
+		return redirect('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id);
+
+	}
 }
