@@ -123,6 +123,11 @@ class AdminController extends Controller
 			foreach($questions as $question) {
 				if($question->answer == 'question') {
 					$q['question'] = $question->question;
+					continue;
+				}
+
+				if($question->question == 'answer') {
+					continue;
 				}
 				
 				$q[$question->question] = $question->answer;
@@ -131,10 +136,16 @@ class AdminController extends Controller
 
 			foreach($questions as $question) {
 				if($question->question == 'answer') {
-					str_replace('_', '-', $question->answer);
+					$test = 'answer-' . explode('_', $question->answer)[1];
+					dd($q[$test]);
+					array_push($q[$test], 'correct');
 				}
 			}
+
+			$questions = $q;
 		}
+
+		dd($questions);
 
 
 
