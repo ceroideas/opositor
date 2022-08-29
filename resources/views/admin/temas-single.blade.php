@@ -105,26 +105,9 @@
 									  </div>
 									  <div class="modal-footer">
 									      <button data-dismiss="modal" class="btn btn-default" type="button">Cancelar</button>
-                              <form action="{{url('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id . '/destroy')}}" method="POST" class="form-inline" role="form">
-				@csrf
-<!--
-									      <button class="btn btn-danger" type="button">Eliminar</button>
-                                  <div class="form-group">
-                                      <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                                      <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
-                                  </div>
-                                  <div class="form-group">
-                                      <label class="sr-only" for="exampleInputPassword2">Password</label>
-                                      <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
-                                  </div>
-                                  <div class="checkbox">
-                                      <label>
-                                          <input type="checkbox"> Remember me
-                                      </label>
-                                  </div>
--->
-                                  <button type="submit" class="btn btn-danger">Eliminar</button>
-                              </form>
+									      <form action="{{url('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id . '/destroy')}}" method="POST" class="form-inline" role="form">
+											@csrf  <button type="submit" class="btn btn-danger">Eliminar</button>
+									      </form>
 									  </div>
 								      </div>
 								  </div>

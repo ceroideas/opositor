@@ -85,12 +85,28 @@
 			</section>
 
 			<section class="panel">
-				<header class="panel-heading space-between">
+				<header class="panel-heading">
 					<h3>Preguntas</h3>
 
-					@if( ( ($subtema->type == 'flashcards' || $subtema->type == 'true_or_false' ) && count($questions) == 0 ) || ( $subtema->type == 'multiple_choice' &&  count($questions) < 3) )
-						<a class="btn btn-success" href="{{url('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id . '/add-question')}}">Agregar</a>
-					@endif
+
+					<div class="question-buttons">
+
+						@if(count($questions) == 0)
+
+							<a class="btn btn-success" href="{{url('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id . '/add-question')}}">Agregar</a>
+						@else
+
+							@php $url = '/admin/temas/'. $tema->id .'/subtema/' . $subtema->id . '/edit-question' @endphp
+
+							<a class="btn btn-primary btn-xs" href="{{url($url)}}">Editar <i class="fa fa-pencil"></i></a>
+
+							<a class="btn btn-danger btn-xs" data-toggle="modal" href="#myModal">
+								Eliminar
+								<i class="fa fa-trash-o "></i>
+							</a>
+
+						@endif
+					</div>
 				</header>
 
 				<div class="preguntas">
@@ -101,9 +117,14 @@
 								<i class="fa fa-times"></i>
 							</button>
 							<p>{{session('error')}}</p>
-													</div>
+						</div>
 					@endif
+
 					@if( count($questions) > 0)
+
+					@if($subtema->type == 'multiple_choice')
+						@include('../inc/_multiple_choice_question_show', ['questions' => $questions])
+					@else
 						<table class="table">
 							<thead>
 								<tr>
@@ -116,7 +137,11 @@
 							<tbody>
 								@foreach($questions as $question)
 									<tr>
+									@include('../inc/_question_row_show', ['question' => $question])
+
+{{--
 										<td>{{$question->question}}</td>
+
 										@if($question->answer == 'true')
 											<td>Verdadero</td>
 										@elseif($question->answer == 'false')
@@ -129,12 +154,44 @@
 
 											@php $url = '/admin/temas/'. $tema->id .'/subtema/' . $subtema->id . '/edit-question' @endphp
 											<a class="btn btn-primary btn-xs" href="{{url($url)}}"><i class="fa fa-pencil"></i></a>
-											<button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button> 
+
+											<a class="btn btn-danger btn-xs" data-toggle="modal" href="#myModal">
+												<i class="fa fa-trash-o "></i>
+											</a>
+
+
+											<!-- <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button> -->
+
+											      <div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+												  <div class="modal-dialog">
+												      <div class="modal-content">
+													  <div class="modal-header">
+													      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+													      <h4 class="modal-title">¿Seguro que deseas eliminar este subtema?</h4>
+													  </div>
+													  <div class="modal-body">
+
+													      ¿Seguro que deseas eliminar este subtema?
+
+													  </div>
+													  <div class="modal-footer">
+
+													      <button data-dismiss="modal" class="btn btn-default" type="button">Cancelar</button>
+													      <form action="{{url('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id . '/delete-question')}}" method="POST" class="form-inline" role="form">
+															@csrf  <button type="submit" class="btn btn-danger">Eliminar</button>
+													      </form>
+
+													  </div>
+												      </div>
+												  </div>
+											      </div>
 										</td>
+--}}
 									</tr>
 								@endforeach
 							</tbody>
 						</table>
+						@endif
 					@else
 						<p>No hay preguntas por los momentos</p>
 					@endif

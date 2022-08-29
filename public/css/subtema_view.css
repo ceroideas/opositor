@@ -27,6 +27,38 @@
 	justify-content: space-between;
 }
 
+.panel-heading {
+
+	display:flex;
+	align-items: center;
+	justify-content: space-between;
+
+	
+}
+
+.panel-heading .question-buttons {
+	padding: 10px;
+}
+
+.panel-heading .question-buttons a {
+	margin: 10px;
+	padding: 10px;
+}
+
+.panel-heading .question-buttons a i {
+	margin-left: 10px;
+}
+
+.modal-footer  {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.modal-footer form {
+	margin: 0px 20px !important;
+}
+
 /*
 thead th {
 	display:flex;

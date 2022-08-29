@@ -10,7 +10,6 @@ use App\Models\Questions;
 
 class AdminController extends Controller
 {
-    //
 	public function temas_show() {
 		$temas = Temas::all();
 
@@ -116,6 +115,28 @@ class AdminController extends Controller
 		$subtema = Subtemas::findOrFail($subtema_id);
 		//$questions = Questions::all();
 		$questions = Questions::where('section_id', $subtema->id)->get();
+
+		if($subtema->type == 'multiple_choice') {
+
+			$q = [];
+
+			foreach($questions as $question) {
+				if($question->answer == 'question') {
+					$q['question'] = $question->question;
+				}
+				
+				$q[$question->question] = $question->answer;
+
+			}
+
+			foreach($questions as $question) {
+				if($question->question == 'answer') {
+					str_replace('_', '-', $question->answer);
+				}
+			}
+		}
+
+
 
 		return view('admin.subtema_view', [
 			'tema' => $tema,
@@ -294,15 +315,7 @@ class AdminController extends Controller
 
 			case "multiple_choice":
 
-				/*
-				// Check if there's already a question
 				$q = Questions::where('section_id', $subtema->id)->get();
-
-				if(count($q) > 0) {
-					return redirect('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id)
-						->with('error', 'Los subtemas de tipo "flashcards" solo pueden tener una pregunta y respuesta');
-				}
-				 */
 
 				$formFields = $request->validate([
 					'question' => 'required',
@@ -322,26 +335,46 @@ class AdminController extends Controller
 					['answer', $request->answer]
 				];
 
-				forEach($datas as $data) {
-					Questions::create([
-						'section_id' => $subtema->id,
-						'question' => $data[0],
-						'answer' => $data[1],
-					]);
+				forEach($q as $question) {
+
+					if ($question->answer == 'question') {
+						$question->question = $datas[0][0];	
+					}
+
+					if ($question->question == 'answer') {
+						$question->answer = $datas[5][1];	
+					}
+
+					forEach($datas as $data) {
+
+						if($question->question == $data[0]) {
+							$question->answer = $data[1];
+						}
+
+					}
+
+
+					$question->save();
 				}
 
-				return redirect('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id);
 
 				break;
 		}
 
-		/*
-		$formFields['section_id'] = $subtema->id;
-
-		Questions::create($formFields);
-		 */
 
 		return redirect('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id);
 
+	}
+
+	public function question_delete(Request $request, $tema_id, $subtema_id) {
+		$tema = Temas::findOrFail($tema_id);
+		$subtema = Subtemas::findOrFail($subtema_id);
+		$questions = Questions::where('section_id', $subtema_id)->get();
+
+		forEach($questions as $question) {
+			$question->delete();
+		}
+
+		return redirect('/admin/temas/'. $tema_id .'/subtema/' . $subtema_id);
 	}
 }
