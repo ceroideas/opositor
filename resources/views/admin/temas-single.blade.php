@@ -44,7 +44,7 @@
 							@php
 								$description = strlen($subtema->description) > 13 ? substr($subtema->description, 0, 30) . '...' : $subtema->description;
 							@endphp
-							  <td class="hidden-phone">{{$description}}</td>
+							  <td class="hidden-phone">{!! $description !!}</td>
 
 							@if($subtema->status == 'active')
 							  <td class="dificulty-column"><span class="label label-success label-mini">Activa</span></td>

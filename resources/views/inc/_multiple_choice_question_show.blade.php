@@ -1,7 +1,6 @@
+@foreach($questions as $key => $value)
 
-@foreach($questions as $question)
-
-	@if($question->answer == 'question')
+	@if($key == 'question')
 		
 		<table class="table">
 			<thead>
@@ -12,7 +11,7 @@
 
 			<tbody>
 				<tr>
-					<td>{{$question->question}}</td>
+					<td>{{$value}}</td>
 				</tr>
 			</tbody>
 		</table>
@@ -20,26 +19,29 @@
 
 @endforeach
 
+<table class="table">
+	<thead>
+		<tr>
+			<th>Respuesta</th>
+		</tr>
+	</thead>
 
-@foreach($questions as $question)
+	<tbody>
+			@foreach($questions as $key => $value)
 
-	@if($question->answer == 'question')
-		@continue
-	@endif
-		
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Respuesta</th>
-				<th>Opcion</th>
-			</tr>
-		</thead>
+				@if($key != 'question')
+						@if(count($value) > 1)
+							<tr class="correct-answer">
+								<td>{{$value[0]}}</td>			
+							</tr>
+						@else
+							<tr>
+								<td>{{$value[0]}}</td>			
+							</tr>
+						@endif
 
-		<tbody>
-			<tr>
-				<td>{{$question->answer}}</td>
-			</tr>
-		</tbody>
-	</table>
+				@endif
 
-@endforeach
+			@endforeach
+	</tbody>
+</table>

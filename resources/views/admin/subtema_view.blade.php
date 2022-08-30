@@ -1,3 +1,4 @@
+
 @extends('layout')
 
 @section('css')
@@ -24,7 +25,7 @@
 						<tr>
 							<th class="text-center"><i class="fa fa-bookmark"></i> Status</th>
 							<th class="text-center"><i class="fa fa-bookmark"></i> Tipo</th>
-							<th class="text-center"><i class=" fa fa-edit"></i> Dificultad</th>
+							<th class="text-center"><i class="fa fa-edit"></i> Dificultad</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -77,11 +78,11 @@
 					<h3>Descripcion</h3>
 				</header>
 
+				{!! $subtema->description !!}
 <!--
 
-				<p class="descripcion"> {!! $subtema->description !!} </p>
--->
 				<p class="descripcion"> {{ $subtema->description }} </p>
+-->
 			</section>
 
 			<section class="panel">

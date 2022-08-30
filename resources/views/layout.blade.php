@@ -38,16 +38,16 @@
     <link href="{{ asset('/template_content/assets/advanced-datatable/media/css/demo_page.css') }}" rel="stylesheet" />
     <link href="{{ asset('/template_content/assets/advanced-datatable/media/css/demo_table.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('/template_content/assets/data-tables/DT_bootstrap.css') }}" />
-    <link rel="stylesheet" href="{{ asset('/dropify/dist/css/dropify.min.css') }}">
-    <link href="{{ asset('/bootstrap-switch/bootstrap-switch.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('/pnotify/PNotifyBrightTheme.css') }}" />
+    <!-- <link rel="stylesheet" href="{{ asset('/template_content/dropify/dist/css/dropify.min.css') }}"> -->
+    <link href="{{ asset('/template_content/bootstrap-switch/bootstrap-switch.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('/template_content/pnotify/PNotifyBrightTheme.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/css/select2.min.css" integrity="sha256-FdatTf20PQr/rWg+cAKfl6j4/IY3oohFAJ7gVC3M34E=" crossorigin="anonymous" />
-    <link href="{{ asset('/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/template_content/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="{{ asset('/template_content/assets/bootstrap-datepicker/css/datepicker.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('/template_content/assets/bootstrap-daterangepicker/daterangepicker-bs3.css') }}" />
     <script src="{{ asset('/template_content/js/jquery.js') }}"></script>
-    <link rel="stylesheet" href="{{ asset('/css/dropzone.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css/layout.css') }}">
+    <link rel="stylesheet" href="{{ asset('/template_content/css/dropzone.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
 	@yield('css')
   </head>
 

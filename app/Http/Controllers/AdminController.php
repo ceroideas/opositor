@@ -113,7 +113,6 @@ class AdminController extends Controller
 
 		$tema = Temas::findOrFail($tema_id);
 		$subtema = Subtemas::findOrFail($subtema_id);
-		//$questions = Questions::all();
 		$questions = Questions::where('section_id', $subtema->id)->get();
 
 		if($subtema->type == 'multiple_choice') {
@@ -130,24 +129,20 @@ class AdminController extends Controller
 					continue;
 				}
 				
-				$q[$question->question] = $question->answer;
+				$q[$question->question] = [$question->answer];
 
 			}
 
 			foreach($questions as $question) {
 				if($question->question == 'answer') {
 					$test = 'answer-' . explode('_', $question->answer)[1];
-					dd($q[$test]);
+					//dd($q[$test]);
 					array_push($q[$test], 'correct');
 				}
 			}
 
 			$questions = $q;
 		}
-
-		dd($questions);
-
-
 
 		return view('admin.subtema_view', [
 			'tema' => $tema,
@@ -249,8 +244,10 @@ class AdminController extends Controller
 		}
 
 		$formFields['section_id'] = $subtema->id;
-
 		Questions::create($formFields);
+
+		$subtema->status = 'active';
+		$subtema->save();
 
 		return redirect('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id);
 
@@ -385,6 +382,9 @@ class AdminController extends Controller
 		forEach($questions as $question) {
 			$question->delete();
 		}
+
+		$subtema->status = 'inactive';
+		$subtema->save();
 
 		return redirect('/admin/temas/'. $tema_id .'/subtema/' . $subtema_id);
 	}
