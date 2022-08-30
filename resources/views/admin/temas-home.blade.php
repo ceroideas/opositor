@@ -6,6 +6,9 @@
 @endsection
 
 @section('body')
+	
+			
+	<h1>Temas</h1>
 
 	<a href="{{url('/admin/temas-add')}}" class="btn btn-success">Crear otro Tema</a>
 
