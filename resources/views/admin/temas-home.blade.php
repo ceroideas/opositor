@@ -8,9 +8,16 @@
 @section('body')
 	
 			
-	<h1>Temas</h1>
+	<header class="temas-header">
+		<span></span>
 
-	<a href="{{url('/admin/temas-add')}}" class="btn btn-success">Crear otro Tema</a>
+
+		<h1>Temas</h1>
+		
+
+		<a href="{{url('/admin/temas-add')}}" class="btn btn-success">Añadir</a>
+	</header>
+	<hr>
 
 @foreach($temas as $tema)
 	<div class="row no-margin">

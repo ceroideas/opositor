@@ -5,4 +5,26 @@
 	display: block;
 }
 
+/*
+h1 {
+	width: 100%;
+	text-align:center;
+}
+*/
 
+header.temas-header {
+	max-width: 1000px;
+	margin: 0px auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+hr {
+	display:block;
+	max-width: 1000px;
+	margin: 20px auto;
+	height: 2px;
+	background-color: black;
+	opacity: 0.2;
+}
