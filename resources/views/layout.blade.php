@@ -26,6 +26,10 @@
     <link href="{{ asset('/template_content/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('/template_content/css/style-responsive.css') }}" rel="stylesheet" />
 
+    <!--toastr-->
+    <link href="{{ asset('/template_content/assets/toastr-master/toastr.css') }} " rel="stylesheet" type="text/css" />
+
+
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 
@@ -172,11 +176,33 @@
     <script type="text/javascript" src="{{ asset('/template_content/assets/bootstrap-daterangepicker/moment.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/template_content/assets/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
 
+   <!--toastr-->
+    <script src="{{ asset('/template_content/assets/toastr-master/toastr.js') }}"></script>
+
     <script src="{{ asset('/template_content/js/common-scripts.js') }}"></script>
     {{-- <script src="{{ asset('/template_content/js/advanced-form-components.js') }}"></script> --}}
-  <script>
+	@if(session()->has('success'))
+	<script>
 
-  </script>
+		toastr.options = {
+			"closeButton": true,
+			"debug": false,
+			"progressBar": false,
+			"positionClass": "toast-top-right",
+			"onclick": null,
+			"showDuration": "300",
+			"hideDuration": "1000",
+			"timeOut": "5000",
+			"extendedTimeOut": "1000",
+			"showEasing": "swing",
+			"hideEasing": "linear",
+			"showMethod": "fadeIn",
+			"hideMethod": "fadeOut"
+		}
+
+		toastr['success']("{{session('success')}} ", "Excito!")
+	</script>
+	@endif
     @yield('scripts')
   </body>
 

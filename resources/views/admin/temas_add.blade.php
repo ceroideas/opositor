@@ -5,14 +5,10 @@
 @endsection
 
 @section('body')
-	<style>
-
-	</style>
-
 <div class="row no-margin">
 	<div class="col header-1">
 		<a href="{{url('/admin/temas-show')}}" class="goback-link"><i class="fa fa-angle-left"></i></a>
-		<h2 class="title">Editar </h2>
+		<h2 class="title">Añadir un tema</h2>
 		<span></span>
 	</div>
 </div>
@@ -69,6 +65,28 @@
 @endsection
 
 @section('scripts')
+	@if(session()->has('success'))
+	<script>
+
+		toastr.options = {
+			"closeButton": true,
+			"debug": false,
+			"progressBar": false,
+			"positionClass": "toast-top-right",
+			"onclick": null,
+			"showDuration": "300",
+			"hideDuration": "1000",
+			"timeOut": "5000",
+			"extendedTimeOut": "1000",
+			"showEasing": "swing",
+			"hideEasing": "linear",
+			"showMethod": "fadeIn",
+			"hideMethod": "fadeOut"
+		}
+
+		toastr['success']("Flatlab is an Awesome dashboard build with BS3 ", "Toastr Notification")
+	</script>
+	@endif
 @endsection
 
 

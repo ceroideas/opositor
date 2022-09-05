@@ -39,7 +39,7 @@ class AdminController extends Controller
 
 		Temas::create($formFields);
 
-		return redirect('/admin/temas-show');
+		return redirect('/admin/temas-show')->with('success', 'Tema creado excitosamente');
 	}
 
 	public function temas_add_subtema($id) {
@@ -56,7 +56,7 @@ class AdminController extends Controller
 		//Temas::destroy($id);
 		Subtemas::destroy($subtema_id);
 
-		return redirect('/admin/temas/' . $id);
+		return redirect('/admin/temas/' . $id)->with('success', 'Subtema eliminado excitosamente');
 	}
 
 	public function temas_update_subtema($id, $subtema_id, Request $request) {
@@ -79,7 +79,7 @@ class AdminController extends Controller
 
 		$subtema->save();
 
-		return redirect('/admin/temas/' . $id);
+		return redirect('/admin/temas/' . $id)->with('success', 'Subtema editado excitosamente');
 		
 	}
 
@@ -105,7 +105,7 @@ class AdminController extends Controller
 
 		Subtemas::create($formFields);
 
-		return redirect('/admin/temas/' . $id);
+		return redirect('/admin/temas/' . $id)->with('success', 'Subtema añadido excitosamente');
 
 	}
 
@@ -249,7 +249,7 @@ class AdminController extends Controller
 		$subtema->status = 'active';
 		$subtema->save();
 
-		return redirect('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id);
+		return redirect('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id)->with('success', 'Pregunta añadida excitosamente');
 
 	}
 
@@ -370,7 +370,7 @@ class AdminController extends Controller
 		}
 
 
-		return redirect('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id);
+		return redirect('/admin/temas/' . $tema->id . '/subtema/' . $subtema->id)->with('success', 'Pregunta guardata de de forma excitosamente');
 
 	}
 
@@ -386,6 +386,6 @@ class AdminController extends Controller
 		$subtema->status = 'inactive';
 		$subtema->save();
 
-		return redirect('/admin/temas/'. $tema_id .'/subtema/' . $subtema_id);
+		return redirect('/admin/temas/'. $tema_id .'/subtema/' . $subtema_id)->with('success', 'Pregunta eliminada de de forma excitosamente');
 	}
 }
