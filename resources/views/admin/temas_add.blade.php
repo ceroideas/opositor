@@ -1,12 +1,24 @@
 @extends('layout')
 
+@section('css')
+    <link rel="stylesheet" href="{{ asset('/css/temas_add.css') }}">
+@endsection
+
 @section('body')
 	<style>
 
 	</style>
 
-	<div class="row no-margin">
-		<div id="" class="mx-a col-md-10 no-margin">
+<div class="row no-margin">
+	<div class="col header-1">
+		<a href="{{url('/admin/temas-show')}}" class="goback-link"><i class="fa fa-angle-left"></i></a>
+		<h2 class="title">Editar </h2>
+		<span></span>
+	</div>
+</div>
+
+	<div class="row main-row no-margin">
+		<div id="" class="mx-a col-md-10 no-margin main-col">
                       <section class="panel">
                           <header class="panel-heading">
                               Añadir un tema
@@ -55,3 +67,8 @@
 	
 
 @endsection
+
+@section('scripts')
+@endsection
+
+
