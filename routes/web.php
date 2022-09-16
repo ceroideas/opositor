@@ -26,6 +26,8 @@ Route::get('login', ['uses' => function () {
     return view('login');
 }, 'as' => 'login']);
 
+Route::get('/waitroom', [MainController::class, 'waitroom'])->middleware('auth');
+
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/', [MainController::class, 'index']);
     Route::get('/temas-show', [AdminController::class, 'temas_show']);
