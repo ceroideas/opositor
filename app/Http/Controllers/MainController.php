@@ -17,6 +17,16 @@ class MainController extends Controller
 
     public function waitroom()
     {
-        return Auth::user()->role;
+
+	switch(Auth::user()->role) {
+		case 'admin':
+			return redirect('/admin');
+			break;	
+
+		case 'user':
+			return redirect('/dashboard');
+			break;	
+	}
+
     }
 }

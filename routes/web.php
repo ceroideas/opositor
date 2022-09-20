@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,8 +29,13 @@ Route::get('login', ['uses' => function () {
 
 Route::get('/waitroom', [MainController::class, 'waitroom'])->middleware('auth');
 
+Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function() {
+    Route::get('/', [UserController::class, 'index']);
+
+});
+
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
-    Route::get('/', [MainController::class, 'index']);
+    Route::get('/', [AdminController::class, 'index']);
     Route::get('/temas-show', [AdminController::class, 'temas_show']);
     Route::get('/temas-add', [AdminController::class, 'temas_add']);
     Route::post('/temas-store', [AdminController::class, 'temas_store']);
