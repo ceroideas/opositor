@@ -80,7 +80,7 @@
                         </a>
                         <ul class="dropdown-menu extended logout">
                             <div class="log-arrow-up"></div>
-                            <li><a href="{{url('/admin/temas-show')}}"><i class="fa fa-cog"></i> Administrar Temas</a></li>
+                            <!-- <li><a href="{{url('/admin/temas-show')}}"><i class="fa fa-cog"></i> Administrar Temas</a></li> -->
                             <!-- <li class="text-center"><a href="#"><i class="fa fa-key"></i> Salir</a></li> -->
 				<li>
 
@@ -105,12 +105,22 @@
         </header>
       <!--header end-->
       <!--sidebar start-->
+	@if(Auth::user()->role == 'admin')
+		@include('inc._sidebar_admin')
+	@else
+		@include('inc._sidebar_user')
+	@endif
+
+	{{--
+
+
       <aside>
-          <div style="z-index: 2" id="sidebar"  class="nav-collapse ">
+          <div  id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
+
                   <li>
-                      <a class="active" href="{{url('/')}}">
+                      <a class="" href="{{url('/')}}">
                           <i class="fa fa-dashboard"></i>
                           <span>Inicio</span>
                       </a>
@@ -118,28 +128,33 @@
 
                   <li class="sub-menu">
                       <a href="javascript:;" >
-                        {{-- <i class="fa fa-globe"></i> --}}
-                        <span>Menu 1</span>
+                        {{-- <i class="fa fa-globe"></i> 
+                        <span>Admin</span>
                       </a>
+
                       <ul class="sub">
                           <li>
-                              <a href="#">
-                                  Submenu 1
+                              <a href="{{url('/admin/temas-show')}}">
+                                  Administrar Temas
                               </a>
                           </li>
                       </ul>
+
                   </li>                    
 
+<!--
                   <li>
                       <a href="#">
                           Salir
                       </a>
                   </li>
+-->
                 </ul>
               </ul>
               <!-- sidebar menu end-->
             </div>
         </aside>
+	--}}
       <!--sidebar end-->
       <!--main content start-->
 	<main>

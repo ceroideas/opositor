@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Models\User;
 use App\Models\Temas;
 use App\Models\Subtemas;
 use App\Models\Questions;
@@ -13,6 +15,11 @@ class AdminController extends Controller
 
 	public function index() {
 		return view('admin.home');
+	}
+
+	public function manage_users() {
+		$users = User::where('role', '!=', 'admin')->get();
+		return view('admin.manage_users', ['users' => $users]);
 	}
 
 	public function temas_show() {
