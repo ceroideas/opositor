@@ -2,44 +2,54 @@
 
 @section('body')
 
+
 	<div class="row no-margin">
-		<div class="col-12 header-1">
-			<a href="{{url('/admin')}}" class="goback-link"><i class="fa fa-angle-left"></i></a>
-			<h2 style="text-align:center;"><strong>Administrar Usuarios</strong></h2>
+		<div class="col-12 no-margin super_test header-1">
+			<a href="{{url('/dashboard')}}" class="goback-link"><i class="fa fa-angle-left"></i></a>
+			<h2 class="text-center margin-tb"> Mis Temas </h2>
+		
 			<span></span>
 		</div>
 	</div>
 
-<!--
-              <header class="panel-heading">
-                  Dynamic Table
-             <span class="tools pull-right">
-                <a href="javascript:;" class="fa fa-chevron-down"></a>
-                <a href="javascript:;" class="fa fa-times"></a>
-             </span>
-              </header>
--->
-	
-<!--
-	<div class="row no-margin">
-		<div class="col-12">
--->
               <div class="row no-margin">
                 <div class="col-sm-12">
               <section class="panel">
               <div class="panel-body">
               <div class="adv-table">
-              <table  class="display table table-bordered table-striped" id="dynamic-table">
+              <table  class="display table {{-- table-bordered table-striped --}}" id="dynamic-table">
               <thead>
               <tr>
                   <th>ID</th>
+<!--
                   <th>Nombre</th>
                   <th></th>
                   <th class="hidden-phone">Engine version</th>
                   <th class="hidden-phone">CSS grade</th>
+-->
               </tr>
               </thead>
               <tbody>
+
+		@for ($i = 0; $i <= 100; $i++)
+		<tr>
+			<td>
+			      <section class="panel">
+				  <header class="panel-heading">
+				      Collapsible Widget
+				      <span class="tools pull-right">
+					<a class="fa fa-chevron-down" href="javascript:;"></a>
+				    </span>
+				  </header>
+				  <div class="panel-body">
+				       Content goes here
+				  </div>
+			      </section>
+			</td>
+		</tr>
+		@endfor
+
+<!--
               <tr class="gradeX">
                   <td>Trident</td>
                   <td>Internet
@@ -443,7 +453,9 @@
                   <td class="center hidden-phone">-</td>
                   <td class="center hidden-phone">U</td>
               </tr>
+-->
               </tbody>
+<!--
               <tfoot>
               <tr>
                   <th>Rendering engine</th>
@@ -453,21 +465,15 @@
                   <th class="hidden-phone">CSS grade</th>
               </tr>
               </tfoot>
+-->
               </table>
               </div>
               </div>
-
-<!--
-		</div>
-	</div>
--->
-
 @endsection
 
 @section('scripts')
 <script>
     // aqui los scripts de la pagina
 </script>
-    <!--dynamic table initialization -->
-    <script src="{{ asset('/template_content/js/dynamic_table_init.js') }}"></script>
+<script src="{{ asset('/template_content/js/dynamic_table_init.js') }}"></script>
 @stop

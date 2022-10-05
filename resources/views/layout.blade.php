@@ -64,7 +64,10 @@
                   <i class="fa fa-bars"></i>
               </div>
             <!--logo start-->
-            <a href="{{ url('/admin') }}" class="logo">OPOSITOR<span>BOMBEROS</span></a>
+	    @php 
+	   	$url =  Auth::user()->role == 'admin' ? '/admin' : '/dashboard';
+	    @endphp
+            <a href="{{ url( $url ) }}" class="logo">OPOSITOR<span>BOMBEROS</span></a>
             <div class="top-nav ">
                 <!--search & user info start-->
                 <ul class="nav pull-right top-menu">

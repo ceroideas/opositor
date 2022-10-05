@@ -29,12 +29,12 @@ Route::get('login', ['uses' => function () {
 
 Route::get('/waitroom', [MainController::class, 'waitroom'])->middleware('auth');
 
-Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function() {
+Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'filter.user']], function() {
     Route::get('/', [UserController::class, 'index']);
-
+    Route::get('/mis-temas', [UserController::class, 'mis_temas']);
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'filter.admin']], function() {
     Route::get('/', [AdminController::class, 'index']);
     Route::get('/temas-show', [AdminController::class, 'temas_show']);
     Route::get('/temas-add', [AdminController::class, 'temas_add']);
