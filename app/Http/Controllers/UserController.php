@@ -12,6 +12,7 @@ class UserController extends Controller
 	}
 
 	public function mis_temas() {
-		return view('user.mis_temas');
+		$mis_temas = [];
+		return view('user.mis_temas', ['mis_temas' => $mis_temas]);
 	}
 }
