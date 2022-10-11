@@ -15,4 +15,9 @@ class UserController extends Controller
 		$mis_temas = [];
 		return view('user.mis_temas', ['mis_temas' => $mis_temas]);
 	}
+
+	public function temas() {
+		$temas = [];
+		return view('user.temas', ['temas' => $temas]);
+	}
 }

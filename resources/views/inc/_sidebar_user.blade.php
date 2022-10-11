@@ -11,9 +11,16 @@
 	      </a>
 	  </li>
 
+	  <li>
+	      <a class="" href="{{url('/dashboard/mis-temas')}}">
+		  <i class="fa fa-dashboard"></i>
+		  <span>Mis temas</span>
+	      </a>
+	  </li>
+{{--
 	  <li class="sub-menu">
 	      <a href="javascript:;" >
-		{{-- <i class="fa fa-globe"></i> --}}
+		 <i class="fa fa-globe"></i> 
 		<span>Mis Temas</span>
 	      </a>
 
@@ -28,7 +35,7 @@
 -->
 
 	  </li>                    
-
+--}}
 <!--
 	  <li>
 	      <a href="#">
