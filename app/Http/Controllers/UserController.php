@@ -20,4 +20,9 @@ class UserController extends Controller
 		$temas = [];
 		return view('user.temas', ['temas' => $temas]);
 	}
+
+	public function tema_single() {
+		$temas = [];
+		return view('user.tema_single', ['temas' => $temas]);
+	}
 }

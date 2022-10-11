@@ -31,7 +31,9 @@ Route::get('/waitroom', [MainController::class, 'waitroom'])->middleware('auth')
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'filter.user']], function() {
     Route::get('/', [UserController::class, 'index']);
+    Route::get('/temas', [UserController::class, 'temas']);
     Route::get('/mis-temas', [UserController::class, 'mis_temas']);
+    Route::get('/tema/{id}', [UserController::class, 'tema_single'])->where('id', '[0-9]+');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'filter.admin']], function() {

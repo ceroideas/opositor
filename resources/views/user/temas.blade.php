@@ -10,8 +10,8 @@
 
 	<div class="row no-margin">
 		<div class="col-12 no-margin super_test header-1">
-			<a href="{{url('/dashboard')}}" class="goback-link"><i class="fa fa-angle-left"></i></a>
-			<h2 class="text-center margin-tb"> Mis Temas </h2>
+			<a href="{{url('/dashboard/mis-temas')}}" class="goback-link"><i class="fa fa-angle-left"></i></a>
+			<h2 class="text-center margin-tb">  Temas </h2>
 		
 			<span></span>
 		</div>
@@ -22,7 +22,7 @@
 		<div class="col-sm-12">
 			<section class="panel">
 				<div class="panel-body">
-					@if(count($mis_temas) >= 0)
+					@if(count($temas) >= 0)
 
 						<div class="adv-table">
 							<table  class="display table {{-- table-bordered table-striped --}}" id="dynamic-table">
@@ -30,14 +30,23 @@
 									<tr>
 										<th>Titulo</th>
 										<th>Descripcion</th>
+										<th></th>
 									</tr>
 								</thead>
 								<tbody>
 
 									@for ($i = 0; $i <= 100; $i++)
 										<tr>
-											<td>Tittle {{$i}}</td>
+											<td> <a href="#">Tittle {{$i}}</a> </td>
 											<td>Lorem vitae exercitationem explicabo facilis praesentium eum? Porro enim ullam {{$i}}</td>
+											
+											<td>
+												<button class="btn btn-success btn-xs"><i title="Añadir" class="fa fa-plus"></i></button>
+<!--
+												<button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+												<button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+-->
+											</td>
 										</tr>
 									@endfor
 

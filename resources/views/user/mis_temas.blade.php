@@ -48,7 +48,7 @@
 					@else
 						<div class="center">
 							<h2 class="text-center">No tienes ningun tema agregado</h2>
-							<a class="btn btn-success" href="#">Añadir Tema</a>
+							<a class="btn btn-success" href="{{ url('/dashboard/temas') }}">Añadir Tema</a>
 						</div>
 					@endif
 				</div>
