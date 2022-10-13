@@ -31,20 +31,29 @@
 
                       <!--collapse start-->
                       <div class="panel-group m-bot20" id="accordion">
+
+			@for ($i = 0; $i <= 10; $i++)
+		
                           <div class="panel panel-default">
+
                               <div class="panel-heading">
                                   <h4 class="panel-title">
-                                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                          Collapsible Group Item #1
+				      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$i}}">
+                                          Collapsible Group Item {{ $i }}
                                       </a>
                                   </h4>
                               </div>
-                              <div id="collapseOne" class="panel-collapse collapse in">
+
+                              <div id="collapse{{$i}}" class="panel-collapse collapse ">
                                   <div class="panel-body">
                                       Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                                   </div>
                               </div>
+
                           </div>
+
+			@endfor
+
                           <div class="panel panel-default">
                               <div class="panel-heading">
                                   <h4 class="panel-title">
@@ -76,6 +85,7 @@
                       </div>
                       <!--collapse end-->
 
+{{--
 	<div class="row no-margin">
 		<div class="col-sm-12">
 			<section class="panel">
@@ -83,7 +93,7 @@
 					@if(count($temas) >= 0)
 
 						<div class="adv-table">
-							<table  class="display table {{-- table-bordered table-striped --}}" id="dynamic-table">
+							<table  class="display table  table-bordered table-striped" id="dynamic-table">
 								<thead>
 									<tr>
 										<th>Titulo</th>
@@ -122,6 +132,7 @@
 			</section>
 		</div>
 	</div>
+--}}
 @endsection
 
 @section('scripts')
